@@ -2,9 +2,9 @@
 //Groovy script 
 
 node{
-  def mavenHome = tool name: 'maven3.8.1'
+  def mavenHome = tool name: 'maven3.9.4'
   stage('CodeClone') {
-    git credentialsId: 'git-credentials', url: 'https://github.com/mylandmarktechs/web'
+    git credentialsId: 'git-credentials', url: 'https://github.com/ndahisaac/maven-web-apps.git'
   }
   stage('mavenBuild') {
     sh "${mavenHome}/bin/mvn clean package"
@@ -17,7 +17,7 @@ node{
   stage('emailQualityIssues') {
     emailext body: '''Thanks
 
-Landmark Technologies''', recipientProviders: [developers()], subject: 'status of build', to: 'mylandmarktech@gmail.com'
+Itech Solutions''', recipientProviders: [developers()], subject: 'status of build', to: tosomisaac7@gmail.com'
   }
 
    stage('UploadNexus') {
@@ -31,7 +31,7 @@ Landmark Technologies''', recipientProviders: [developers()], subject: 'status o
   stage('emailDeployIssues') {
     emailext body: '''Thanks
 
-Landmark Technologies''', recipientProviders: [developers()], subject: 'status of build', to: 'mylandmarktech@gmail.com'
-  }
- */ 
+Itech Solutions''', recipientProviders: [developers()], subject: 'status of build', to: 'tosamisaac7@gmail.com'
+  }
+ */ 
 }
